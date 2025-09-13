@@ -39,6 +39,7 @@ XDC_FILES = fpga_au280.xdc
 
 # IP
 IP_TCL_FILES = ip/pcie4c_uscale_plus_0.tcl
+IP_TCL_FILES += ip/ila_0.tcl
 
 # Configuration
 CONFIG_TCL_FILES = ./config.tcl
@@ -92,4 +93,3 @@ flash: $(FPGA_TOP).mcs $(FPGA_TOP).prm
 	echo "boot_hw_device [current_hw_device]" >> flash.tcl
 	echo "exit" >> flash.tcl
 	vivado -nojournal -nolog -mode batch -source flash.tcl
-

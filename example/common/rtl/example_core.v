@@ -168,6 +168,20 @@ module example_core #
 
 localparam RAM_ADDR_IMM_WIDTH = (DMA_IMM_ENABLE && (DMA_IMM_WIDTH > RAM_ADDR_WIDTH)) ? DMA_IMM_WIDTH : RAM_ADDR_WIDTH;
 
+ila_0 ila_psdpram (
+    .clk(clk), // input wire clk
+
+    .probe0(ram_wr_cmd_ready), // input wire [0:0] probe0
+    .probe1(ram_wr_cmd_data), // input wire [511:0]  probe1
+    .probe2(ram_wr_cmd_addr), // input wire [63:0]  probe2
+    .probe3(ram_wr_cmd_valid), // input wire [0:0]  probe3
+    .probe4(0), // input wire [0:0]  probe4
+    .probe5(ram_wr_done), // input wire [0:0]  probe5
+    .probe6(0), // input wire [63:0]  probe6
+    .probe7(0), // input wire [0:0]  probe7
+    .probe8(0) // input wire [0:0]  probe8
+);
+
 dma_psdpram #(
     .SIZE(16384),
     .SEG_COUNT(RAM_SEG_COUNT),
